@@ -22,10 +22,6 @@ def add_contact(args, contacts):
         contacts.add_record(contact)
         return "Contact added."
 
-# @input_error 
-# def show_all(contacts):
-#     return "\n".join([str(contact) for contact in contacts.data.values()])
-
 @input_error   
 def change_number(args, contacts):
     name, old_phone, new_phone = args

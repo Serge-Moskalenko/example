@@ -1,18 +1,27 @@
 from components.tools import bot_command
 from components.tools import parse_input
-from components.data_action import save_data,load_data
-from components.functions import add_birthday,add_contact,change_number,print_phone,show_birthday,birthdays
+from components.data_action import save_data, load_data
+from components.functions import (
+    add_birthday,
+    add_contact,
+    change_number,
+    print_phone,
+    show_birthday,
+    birthdays,
+)
 
 
 def main():
     contacts = load_data()
     print("Welcome to the assistant bot!")
-    print("Available commands:\nhello\nadd\nall\nchange\nphone\nadd_birthday\nshow_birthday\nbirthday\nclose or exit")
+    print(
+        "Available commands:\nhello\nadd\nall\nchange\nphone\nadd_birthday\nshow_birthday\nbirthday\nclose or exit"
+    )
     while True:
         user_input = input("Enter a command: ")
         command, *args = parse_input(user_input)
 
-        if command in(bot_command.exit, bot_command.close):
+        if command in (bot_command.exit, bot_command.close):
             save_data(contacts)
             print("Good bye!")
             break
@@ -34,6 +43,7 @@ def main():
             print(birthdays(args, contacts))
         else:
             print("Invalid command.")
+
 
 if __name__ == "__main__":
     try:
